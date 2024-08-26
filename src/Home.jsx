@@ -72,6 +72,11 @@ export default function Home() {
   function viewAll(subject) {
     // alert(subject);
     subject=="fiction"?navigate("/allFiction"):null;
+    subject=="nonfiction"?navigate("/allnonFiction"):null;
+    subject=="historical"?navigate("/allhistorical"):null;
+    subject=="travel"?navigate("/alltravel"):null;
+    subject=="business economics"?navigate("/allbusiness&economics"):null;
+
   }
   return (
     <div>
@@ -119,7 +124,7 @@ export default function Home() {
                   <u>View All</u>
                 </motion.button>
               </div>
-              <div className="flex justify-center">
+              <div className="flex justify-center flex-wrap">
                 {e.subject == "fiction" ? (
                   fiction.map((ele) => {
                     return <Card src={ele.volumeInfo.imageLinks.thumbnail} title={ele.volumeInfo.title}/>

@@ -4,7 +4,7 @@ import Card from '../Components/Card';
 import LoginNavbar from '../Components/LoginNavbar';
 import butterfly from "../assets/butterfly2.png"
 
-function AllFiction() {
+function NonFiction() {
     const [data,setData] = useState([]);
     useEffect(()=>{
       fetchData();
@@ -12,11 +12,12 @@ function AllFiction() {
 
     async function fetchData() {
         const response = await fetch(
-            'https://www.googleapis.com/books/v1/volumes?q=subject:fiction&maxResults=30'
+            'https://www.googleapis.com/books/v1/volumes?q=subject:nonfiction&maxResults=30'
           );
           const result = await response.json();
           setData(result.items)
     };
+
 
   return (
     <div>
@@ -24,7 +25,7 @@ function AllFiction() {
         <div className='flex justify-center items-center my-9'>
         <img src={butterfly} className='w-40 translate-y-6 '/>
 
-     <h1 className='font-bold text-5xl  text-purple-800'>ALL FICTION</h1>
+     <h1 className='font-bold text-5xl  text-purple-800'>ALL NONFICTION</h1>
         <img src={butterfly} className='w-40 translate-y-6'/>
         </div>
      <div className='flex justify-center flex-wrap'>
@@ -40,4 +41,4 @@ function AllFiction() {
   )
 }
 
-export default AllFiction
+export default NonFiction
