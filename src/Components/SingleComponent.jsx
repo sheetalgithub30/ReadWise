@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function SingleComponent({src,title,auth_name,publisher,p_date,desc,buy_link,preview_link,info_link}) {
+
+  const [speak,setSpeak] = useState(false);
+function target(){
+  let utterance = new SpeechSynthesisUtterance(`${desc}`);
+  setSpeak(!speak)
+      // utterance.lang = "eng";
+      if(speak){
+        speechSynthesis.cancel(utterance);
+
+      }else{
+        speechSynthesis.speak(utterance);
+
+      }
+}
+
 
   return (
     <div className='p-4 shadow-2xl shadow-purple-600 rounded-3xl'>
@@ -22,6 +37,10 @@ function SingleComponent({src,title,auth_name,publisher,p_date,desc,buy_link,pre
         <div className='text-center'>
             <h1 className='text-2xl font-bold '>Description</h1>
               <p className=' text-wrap text-xl'>{desc}</p>
+              <div>
+              <button className={`${speak? "bg-red-600":"bg-green-600"} bg-green-600 text-xl px-4 py-2 text-white rounded-xl m-5`} onClick={target}>{speak?"Stop It!":"Speak It Loud !"}</button>
+
+              </div>
         </div>
     </div>
   )

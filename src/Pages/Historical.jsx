@@ -47,7 +47,7 @@ function Historical() {
               title={e.volumeInfo.title}
                auth_name={e.volumeInfo.authors[0]}
                publisher={e.volumeInfo.publisher}
-                p_date={e.volumeInfo.publishedDate} desc={e.volumeInfo.description} buy_link={e.saleInfo.buyLink} 
+                p_date={e.volumeInfo.publishedDate} desc={e.volumeInfo.description} buy_link={e.saleInfo.buyLink ? e.saleInfo.buyLink :e.volumeInfo.infoLink} 
                 preview_link={e.volumeInfo.previewLink}
                 info_link={e.volumeInfo.infoLink}
                 />
