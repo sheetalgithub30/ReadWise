@@ -15,7 +15,7 @@ function Historical() {
 
 
     const handleCardClick = (id) => {
-      console.log(id);
+      // console.log(id);
       setClick(data.filter((ele)=>{
         return ele.id == id
       }))
