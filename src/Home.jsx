@@ -33,7 +33,7 @@ export default function Home() {
 
   async function fetchData(subject, max) {
     const response = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=subject:${subject}&maxResults=${max}`
+      `https://www.googleapis.com/books/v1/volumes?q=subject:${subject}&maxResults=${max}`,
     );
     const result = await response.json();
     subject == "fiction" ? setFiction(result.items) : null;

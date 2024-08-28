@@ -5,6 +5,7 @@ function Notes() {
   return (
  <>
  <LoginNavbar/>
+ 
  </>
 )
 }
