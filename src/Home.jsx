@@ -17,11 +17,11 @@ export default function Home() {
 
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (auth.currentUser === null) {
-  //     navigate("/");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (auth.currentUser === null) {
+      navigate("/");
+    }
+  }, []);
 
   useEffect(() => {
     fetchData("fiction", 4);
