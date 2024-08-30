@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Grid, Hourglass, ProgressBar, Vortex } from "react-loader-spinner";
+import { Hourglass} from "react-loader-spinner";
 import{motion} from "framer-motion"
 import { RxEnter } from "react-icons/rx";
 
-const API_KEY = "AIzaSyDujSd_KNt_3XqUWkO8hlO82TFtBJ3ScQo";
+const API_KEY = import.meta.env.VITE_APP_GEMINI_KEY;
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 

@@ -16,8 +16,7 @@ function TextTranslator() {
       const options = {
         method: "GET",
         headers: {
-          "X-RapidAPI-Key":
-            "75a5a70114mshd579c697a03cc19p1fa835jsn133f11245987",
+          "X-RapidAPI-Key":import.meta.env.VITE_APP_TRANSLATOR_KEY,
           "X-RapidAPI-Host": "text-translator2.p.rapidapi.com",
         },
       };
