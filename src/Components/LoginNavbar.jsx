@@ -15,7 +15,7 @@ function LoginNavbar() {
       .catch((err) => alert(err.message));
   };
 
-  console.log(auth.currentUser)
+  // console.log(auth.currentUser)
   return (
     <div className="flex justify-between items-center shadow-md  bg-violet-400 px-20">
       <Link to="/home">

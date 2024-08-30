@@ -41,7 +41,7 @@ function AllFiction() {
         <img src={butterfly} className='w-40 translate-y-6'/>
         </div>
 
-        <div>
+        <div >
           {click && click.map((e)=>{
             return <div className='flex justify-center mx-auto my-16 w-[60vw]'>
               <SingleComponent src={e.volumeInfo.imageLinks.thumbnail} 
@@ -51,20 +51,26 @@ function AllFiction() {
                 p_date={e.volumeInfo.publishedDate} desc={e.volumeInfo.description} buy_link={e.saleInfo.buyLink} 
                 preview_link={e.volumeInfo.previewLink}
                 info_link={e.volumeInfo.infoLink}
+                setClick={setClick}
                 />
             </div>
           })}
         </div>
      <div className='flex justify-center flex-wrap'>
-     {
-            data.map((ele)=>{
-              
-                return <div onClick={()=>{
-                  handleCardClick(ele.id)}}>
-                  <Card src={ele.volumeInfo.imageLinks.thumbnail} title={ele.volumeInfo.title} />
-      </div>
-            })
-        }
+     {data.map((ele) => (
+            ele.volumeInfo && ele.volumeInfo.imageLinks && ele.volumeInfo.imageLinks.thumbnail ? (
+              <div onClick={()=>{
+                handleCardClick(ele.id)}}>
+              <Card
+                key={ele.id} // Ensure each element has a unique key
+                src={ele.volumeInfo.imageLinks.thumbnail}
+                title={ele.volumeInfo.title}
+              />
+              </div>
+            ) : (
+              console.log("Thumbnail is undefined for:", ele) || null // Log the message and return null
+            )
+          ))}
      </div>
       
     </div>

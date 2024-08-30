@@ -7,21 +7,26 @@ import { signOut } from "firebase/auth";
 import LoginNavbar from "./Components/LoginNavbar";
 import { motion } from "framer-motion";
 import Card from "./Components/Card";
+import { FaSearch } from "react-icons/fa";
+import SingleComponent from "./Components/SingleComponent";
 export default function Home() {
   const [fiction, setFiction] = useState([]);
   const [nonfiction, setnonFiction] = useState([]);
   const [historical, setHistorical] = useState([]);
   const [travel, setTravel] = useState([]);
   const [be, setBE] = useState([]);
+  const[click,setClick] = useState([])
 
+  const [search, setSearch] = useState("");
+  const[searchData,setSearchData] = useState([]);
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (auth.currentUser === null) {
-      navigate("/");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (auth.currentUser === null) {
+  //     navigate("/");
+  //   }
+  // }, []);
 
   useEffect(() => {
     fetchData("fiction", 4);
@@ -33,7 +38,7 @@ export default function Home() {
 
   async function fetchData(subject, max) {
     const response = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=subject:${subject}&maxResults=${max}`,
+      `https://www.googleapis.com/books/v1/volumes?q=subject:${subject}&maxResults=${max}`
     );
     const result = await response.json();
     subject == "fiction" ? setFiction(result.items) : null;
@@ -71,12 +76,31 @@ export default function Home() {
 
   function viewAll(subject) {
     // alert(subject);
-    subject=="fiction"?navigate("/allFiction"):null;
-    subject=="nonfiction"?navigate("/allnonFiction"):null;
-    subject=="historical"?navigate("/allhistorical"):null;
-    subject=="travel"?navigate("/alltravel"):null;
-    subject=="business economics"?navigate("/allbusiness&economics"):null;
+    subject == "fiction" ? navigate("/allFiction") : null;
+    subject == "nonfiction" ? navigate("/allnonFiction") : null;
+    subject == "historical" ? navigate("/allhistorical") : null;
+    subject == "travel" ? navigate("/alltravel") : null;
+    subject == "business economics" ? navigate("/allbusiness&economics") : null;
+  }
 
+
+  const handleCardClick = (id) => {
+    // console.log(id);
+    setClick(searchData.filter((ele)=>{
+      return ele.id == id
+    }))
+  };
+
+
+
+  async function handleSearch(){
+     const response = await fetch (`https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=4`);
+     const result = await response.json();
+    //  console.log("search",search);
+    console.log("result",result.items)
+    //  setSearch(result);
+    // console.log(result.items);
+    setSearchData(result.items);
   }
   return (
     <div>
@@ -107,7 +131,73 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mt-5">
+      {/* search */}
+      <div className="my-5 text-2xl flex justify-center items-center">
+        <input
+          type="text"
+          placeholder="Enter boook name"
+          className="border-2 border-gray-500 p-[0.67rem] rounded-l-2xl"
+          value={search}
+          onChange={(e)=>setSearch(e.target.value)}
+        ></input>
+        <button className="bg-purple-600 p-4 rounded-r-2xl"
+        onClick={handleSearch}
+        >
+          <FaSearch className="text-white" />
+        </button>
+      </div>
+
+
+      <div>
+          {click && click.map((e)=>{
+            return <div className='flex justify-center mx-auto my-16 w-[60vw]'>
+              <SingleComponent src={e.volumeInfo.imageLinks.thumbnail} 
+              title={e.volumeInfo.title}
+               auth_name={e.volumeInfo.authors[0]}
+               publisher={e.volumeInfo.publisher}
+                p_date={e.volumeInfo.publishedDate} desc={e.volumeInfo.description} buy_link={e.saleInfo.buyLink ? e.saleInfo.buyLink :e.volumeInfo.infoLink} 
+                preview_link={e.volumeInfo.previewLink}
+                info_link={e.volumeInfo.infoLink}
+                setClick={setClick}
+                />
+            </div>
+          })}
+        </div>
+
+      {searchData.length>0 && 
+      
+      <div className="mt-10">
+        <div className="flex justify-around">
+          <div className="w-[25%]"></div>
+        <h1 className="text-4xl font-bold text-violet-700 m-5 w-[33%]">Searched Result</h1>
+        <button className="w-[15%]" onClick={()=>{setSearchData([])
+          setSearch("")
+        }}>❌</button>
+        </div>
+      <div className="flex justify-center flex-wrap">
+
+{
+  searchData && searchData.map((ele) => (
+    ele.volumeInfo && ele.volumeInfo.imageLinks && ele.volumeInfo.imageLinks.thumbnail ? 
+    (
+      <div onClick={()=>{
+        handleCardClick(ele.id)}}>
+        <Card
+          src={ele.volumeInfo.imageLinks.thumbnail}
+          title={ele.volumeInfo.title}
+        />
+      </div>
+    ) : (
+      <></>
+    )
+  ))
+}
+
+      </div>
+      </div>
+      }
+
+      <div className="">
         {data.map((e) => {
           return (
             <>
@@ -127,39 +217,60 @@ export default function Home() {
               <div className="flex justify-center flex-wrap">
                 {e.subject == "fiction" ? (
                   fiction.map((ele) => {
-                    return <Card src={ele.volumeInfo.imageLinks.thumbnail} title={ele.volumeInfo.title}/>
-                   
+                    return (
+                      <Card
+                        src={ele.volumeInfo.imageLinks.thumbnail}
+                        title={ele.volumeInfo.title}
+                      />
+                    );
                   })
                 ) : (
                   <></>
                 )}
                 {e.subject == "nonfiction" ? (
                   nonfiction.map((ele) => {
-                    return <Card src={ele.volumeInfo.imageLinks.thumbnail} title={ele.volumeInfo.title}/>
-                   
+                    return (
+                      <Card
+                        src={ele.volumeInfo.imageLinks.thumbnail}
+                        title={ele.volumeInfo.title}
+                      />
+                    );
                   })
                 ) : (
                   <></>
                 )}
                 {e.subject == "historical" ? (
                   historical.map((ele) => {
-                    return <Card src={ele.volumeInfo.imageLinks.thumbnail} title={ele.volumeInfo.title}/>
+                    return (
+                      <Card
+                        src={ele.volumeInfo.imageLinks.thumbnail}
+                        title={ele.volumeInfo.title}
+                      />
+                    );
                   })
                 ) : (
                   <></>
                 )}
                 {e.subject == "travel" ? (
                   travel.map((ele) => {
-                    return <Card src={ele.volumeInfo.imageLinks.thumbnail} title={ele.volumeInfo.title}/>
-                   
+                    return (
+                      <Card
+                        src={ele.volumeInfo.imageLinks.thumbnail}
+                        title={ele.volumeInfo.title}
+                      />
+                    );
                   })
                 ) : (
                   <></>
                 )}
                 {e.subject == "business economics" ? (
                   be.map((ele) => {
-                    return <Card src={ele.volumeInfo.imageLinks.thumbnail} title={ele.volumeInfo.title}/>
-                   
+                    return (
+                      <Card
+                        src={ele.volumeInfo.imageLinks.thumbnail}
+                        title={ele.volumeInfo.title}
+                      />
+                    );
                   })
                 ) : (
                   <></>

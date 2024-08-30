@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@google/generative-ai": "^0.17.1",
+    "book": "file:",
     "firebase": "^10.13.0",
     "framer-motion": "^11.3.30",
     "react": "^18.3.1",

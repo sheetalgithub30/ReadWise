@@ -1,9 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import {motion} from "framer-motion";
 
-function SingleComponent({src,title,auth_name,publisher,p_date,desc,buy_link,preview_link,info_link}) {
+function SingleComponent({src,title,auth_name,publisher,p_date,desc,buy_link,preview_link,info_link,setClick}) {
 
-  const [speak,setSpeak] = useState(false);
+  useEffect(() => {
+    // window.scrollTo(0, 0);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+});
+
+const [speak,setSpeak] = useState(false);
 function target(){
   let utterance = new SpeechSynthesisUtterance(`${desc}`);
   setSpeak(!speak)
@@ -19,7 +29,7 @@ function target(){
 
 
   return (
-    <div className='p-4 shadow-2xl shadow-purple-600 rounded-3xl'>
+    <div className='p-4 shadow-2xl shadow-purple-600 rounded-3xl relative'>
         <div className='flex items-center'>
         <img src={src} className='w-60 h-72' ></img>
         <div className='p-5 text-2xl  w-full'>
@@ -33,6 +43,10 @@ function target(){
             <Link to={preview_link} className='bg-orange-500 border-4 border-orange-600 px-3 py-1 rounded-2xl m-4'>View Preview</Link>
         </div>
         </div>
+        <motion.button 
+        whileTap={{scale:0.9}}
+        onClick={()=>setClick([])}
+        className='absolute text-2xl top-4 right-4'>❌</motion.button>
         </div>
         <div className='text-center'>
             <h1 className='text-2xl font-bold '>Description</h1>

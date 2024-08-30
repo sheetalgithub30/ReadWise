@@ -54,14 +54,20 @@ function NonFiction() {
           })}
         </div>
      <div className='flex justify-center flex-wrap'>
-     {
-            data.map((ele)=>{
-                return <div onClick={()=>{
-                  handleCardClick(ele.id)}}> 
-                <Card src={ele.volumeInfo.imageLinks.thumbnail} title={ele.volumeInfo.title}/>
-</div>
-            })
-        }
+     {data.map((ele) => (
+            ele.volumeInfo && ele.volumeInfo.imageLinks && ele.volumeInfo.imageLinks.thumbnail ? (
+              <div onClick={()=>{
+                handleCardClick(ele.id)}}>
+              <Card
+                key={ele.id} // Ensure each element has a unique key
+                src={ele.volumeInfo.imageLinks.thumbnail}
+                title={ele.volumeInfo.title}
+              />
+              </div>
+            ) : (
+              console.log("Thumbnail is undefined for:", ele) || null // Log the message and return null
+            )
+          ))}
      </div>
       
     </div>
