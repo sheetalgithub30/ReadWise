@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react'
 import Register from './Register'
-import LogIn from './LogIn'
+import LogIn from './LogIn.jsx'
 import { Route, Routes } from 'react-router-dom'
 import Notes from './Pages/Notes'
 import Translator from './Pages/Translator'
