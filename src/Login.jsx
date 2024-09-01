@@ -6,7 +6,7 @@ import { auth } from "./firebase";
 import { useNavigate } from "react-router-dom";
 import Navbar from './Navbar'
 
-function LogIn() {
+function Login() {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const navigate = useNavigate();
@@ -57,4 +57,4 @@ function LogIn() {
 }
 
 
-export default LogIn;
+export default Login;

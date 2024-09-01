@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react'
 import Register from './Register'
-import LogIn from './LogIn'
+import Login from './Login'
 import { Route, Routes } from 'react-router-dom'
 import Notes from './Pages/Notes'
 import Translator from './Pages/Translator'
@@ -17,8 +17,9 @@ function App() {
   return (
     <>
 
+
      <Routes>
-      <Route path="/" element={<LogIn/>}></Route>
+      <Route path="/" element={<Login/>}></Route>
       <Route path ="/register" element={<Register/>}></Route>
       <Route path="/home" element={<Home/>}></Route>
       <Route path="/allFiction" element={<AllFiction/>}></Route>
