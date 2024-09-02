@@ -7,12 +7,12 @@ function Chatbot() {
     <>
       <LoginNavbar />
       <div>
-        <div className="flex  justify-center items-center">
-          <h1 className="text-5xl font-bold m-6 text-violet-900">
+        <div className="flex  justify-center items-center max-sm:block">
+          <h1 className="text-5xl font-bold m-6 text-violet-900 max-sm:text-2xl text-center">
             Welcome to our book chatbot!
           </h1>
         </div>
-        <p className="text-2xl text-blue-800 text-wrap w-[50%] m-auto text-center">
+        <p className="text-2xl text-blue-800 text-wrap w-[50%] m-auto text-center max-sm:w-[90%] max-sm:text-lg">
           Simply type in your interests or questions, and our chatbot will
           provide personalized book recommendations, genre exploration, author
           details, and more. With our chatbot, finding your next favorite book

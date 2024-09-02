@@ -21,10 +21,10 @@ function handledel(id){
 
 
 return(
-  <div className="border-4 bg-purple-300 border-purple-600 w-[60%] p-7 m-4">
-    <form onSubmit={handleSubmit} className="text-2xl flex justify-center items-center">
-      <input type="text" placeholder="Enter Notes" value={input} onChange={(e)=>{setInput(e.currentTarget.value)}} className="border-2 border-black py-2"></input>
-      <input type="submit" value="ADD" className="bg-green-500 px-5 py-2 m-3 rounded-xl text-white"></input>
+  <div className="border-4 bg-purple-300 border-purple-600 w-[60%] p-7 m-4 max-sm:w-full ">
+    <form onSubmit={handleSubmit} className="text-2xl flex justify-center items-center max-sm:text-xl">
+      <input type="text" placeholder="Enter Notes" value={input} onChange={(e)=>{setInput(e.currentTarget.value)}} className="border-2 border-black py-2 max-sm:py-1 max-sm:w-[80%]"></input>
+      <input type="submit" value="ADD" className="bg-green-500 px-5 py-2 m-3 rounded-xl text-white max-sm:px-2"></input>
     </form>  
 <div className="flex flex-wrap justify-center">
 

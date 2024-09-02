@@ -108,7 +108,7 @@ export default function Home() {
       <div className="bg-hero bg-cover h-[85vh] w-[100%]  bg-[center_bottom_3rem] relative">
         <div className="pt-16 text-center  text-white">
           <h1
-            className=" text-7xl font-extrabold"
+            className=" text-7xl font-extrabold max-sm:text-5xl"
             style={{
               WebkitTextStroke: "1px black",
               WebkitTextFillColor: "white",
@@ -117,7 +117,7 @@ export default function Home() {
             ReadWise
           </h1>
           <p
-            className="text-3xl text-white font-bold mt-5"
+            className="text-3xl text-white font-bold mt-5 max-sm:text-lg"
             style={{
               WebkitTextStroke: "1px black",
               WebkitTextFillColor: "white",
@@ -132,15 +132,15 @@ export default function Home() {
       </div>
 
       {/* search */}
-      <div className="my-5 text-2xl flex justify-center items-center">
+      <div className="my-5 text-2xl flex justify-center items-center max-sm:text-xl">
         <input
           type="text"
           placeholder="Enter boook name"
-          className="border-2 border-gray-500 p-[0.67rem] rounded-l-2xl"
+          className="border-2 border-gray-500 p-[0.67rem] rounded-l-2xl max-sm:w-[60%]"
           value={search}
           onChange={(e)=>setSearch(e.target.value)}
         ></input>
-        <button className="bg-purple-600 p-4 rounded-r-2xl"
+        <button className="bg-purple-600 p-4 rounded-r-2xl "
         onClick={handleSearch}
         >
           <FaSearch className="text-white" />
@@ -203,12 +203,12 @@ export default function Home() {
             <>
               <div className="flex justify-around">
                 <div className="m-2 flex w-[40rem]">
-                  <h1 className=" text-4xl font-bold">{e.type}</h1>
-                  <img src={butterfly} className="w-36"></img>
+                  <h1 className=" text-4xl font-bold max-sm:text-xl">{e.type}</h1>
+                  <img src={butterfly} className="w-36 max-sm:w-16"></img>
                 </div>
                 <motion.button
                   whileTap={{ scale: 0.9 }}
-                  className="text-xl text-violet-800 font-semibold"
+                  className="text-xl text-violet-800 font-semibold max-sm:text-base"
                   onClick={() => viewAll(e.subject)}
                 >
                   <u>View All</u>

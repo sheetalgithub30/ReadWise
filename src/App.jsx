@@ -16,8 +16,6 @@ function App() {
 
   return (
     <>
-
-
      <Routes>
       <Route path="/" element={<Login/>}></Route>
       <Route path ="/register" element={<Register/>}></Route>
@@ -29,8 +27,7 @@ function App() {
       <Route path="/allbusiness&economics" element={<BusinessEconomics/>}></Route>
       <Route path="/notes" element={<Notes/>}></Route>
       <Route path="/translator" element={<Translator/>}></Route>
-      <Route path="/chatbot" element={<Chatbot/>}></Route>
-     
+      <Route path="/chatbot" element={<Chatbot/>}></Route>   
      </Routes>
     </>
   )

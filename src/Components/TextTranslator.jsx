@@ -84,7 +84,7 @@ function TextTranslator() {
           ❌
         </motion.button>
       </div>
-      <div className="flex">
+      <div className="flex max-sm:block ">
         <div>
           <div className="text-center ">
             <select
@@ -104,7 +104,7 @@ function TextTranslator() {
             </select>
           </div>
           <textarea
-            className="w-80 h-80 border-4 border-yellow-400 m-2 p-2 outline-none bg-yellow-100"
+            className="w-80 h-80  max-sm:w-40 border-4 border-yellow-400 m-2 p-2 outline-none bg-yellow-100"
             placeholder="Text to be translated"
             onChange={(e) => setInputValue(e.currentTarget.value)}
           >
@@ -132,7 +132,7 @@ function TextTranslator() {
             </select>
           </div>
 <div className="flex items-end">
-          <p className="w-80 h-80 border-4 border-pink-400 m-2 p-2 bg-pink-100">
+          <p className="w-80 max-sm:w-40 h-80 border-4 border-pink-400 m-2 p-2 bg-pink-100">
             {outputValue}
           </p>
         <button onClick={target}>🔊</button>

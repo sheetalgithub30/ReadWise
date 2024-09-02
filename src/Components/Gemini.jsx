@@ -74,9 +74,9 @@ function GeminiPrompt({
   return (
     <div
      style={{fontFamily:"cursive"}}
-    className="border-4 border-purple-800 rounded-3xl w-1/2 m-auto ">
+    className="border-4 border-purple-800 rounded-3xl w-1/2 mx-auto mb-10 max-sm:w-full ">
         <div className="flex justify-between mx-4 mt-3">
-        <p className="text-2xl p-3 font-semibold text-blue-950"><i>HOW CAN I HELP YOU?✨✨</i> </p>
+        <p className="text-2xl p-3 font-semibold text-blue-950 max-sm:text-base"><i>HOW CAN I HELP YOU?✨✨</i> </p>
         <motion.button
         whileTap={{scale:0.9}}
         onClick={()=>{

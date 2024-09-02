@@ -7,7 +7,7 @@ function SingleComponent({src,title,auth_name,publisher,p_date,desc,buy_link,pre
   useEffect(() => {
     // window.scrollTo(0, 0);
     window.scrollTo({
-      top: 0,
+      top: 60,
       left: 0,
       behavior: "smooth",
     });
@@ -30,7 +30,7 @@ function target(){
 
   return (
     <div className='p-4 shadow-2xl shadow-purple-600 rounded-3xl relative'>
-        <div className='flex items-center'>
+        <div className='flex items-center max-sm:block'>
         <img src={src} className='w-60 h-72' ></img>
         <div className='p-5 text-2xl  w-full'>
              <p><span className='font-bold text-blue-700'>Title:</span>{title}</p>

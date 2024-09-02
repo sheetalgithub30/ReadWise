@@ -34,10 +34,10 @@ function Historical() {
     <div>
         <LoginNavbar/>
         <div className='flex justify-center items-center my-9'>
-        <img src={butterfly} className='w-40 translate-y-6 '/>
+        <img src={butterfly} className='w-40 translate-y-6 max-sm:w-20'/>
 
-     <h1 className='font-bold text-5xl  text-purple-800'>ALL HISTORICAL</h1>
-        <img src={butterfly} className='w-40 translate-y-6'/>
+     <h1 className='font-bold text-5xl  text-purple-800 max-sm:text-xl'>ALL HISTORICAL</h1>
+        <img src={butterfly} className='w-40 translate-y-6 max-sm:w-20'/>
         </div>
 
         <div>

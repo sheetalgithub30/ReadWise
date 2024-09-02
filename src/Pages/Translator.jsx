@@ -7,12 +7,12 @@ function Translator() {
     <>
       <LoginNavbar />
       <div>
-        <div className="flex  justify-center items-center">
-          <h1 className="text-5xl font-bold my-6 text-violet-900">
+        <div className="flex  justify-center items-center max-sm:block">
+          <h1 className="text-5xl font-bold my-6 text-violet-900 max-sm:text-2xl text-center">
             Welcome to our Book translator feature!
           </h1>
         </div>
-        <p className="text-2xl text-blue-800 text-wrap w-[50%] m-auto text-center">
+        <p className="text-2xl text-blue-800 text-wrap w-[50%] m-auto text-center max-sm:w-[90%] max-sm:text-lg">
           With our tool, you can effortlessly translate movie titles,
           descriptions, and reviews between any languages. Break language
           barriers, explore global cinema, and connect with international
