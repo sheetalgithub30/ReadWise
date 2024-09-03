@@ -3,6 +3,7 @@ import Card from '../Components/Card';
 import LoginNavbar from '../Components/LoginNavbar';
 import butterfly from "../assets/butterfly2.png"
 import SingleComponent from '../Components/SingleComponent';
+import Footer from '../Components/Footer';
 
 function Travel() {
     const [data,setData] = useState([]);
@@ -66,7 +67,7 @@ function Travel() {
             )
           ))}
      </div>
-      
+      <Footer/>
     </div>
   )
 }

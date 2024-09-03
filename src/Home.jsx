@@ -10,6 +10,7 @@ import Card from "./Components/Card";
 import { FaSearch } from "react-icons/fa";
 import SingleComponent from "./Components/SingleComponent";
 import Spinner from './Components/Spinner';
+import Footer from "./Components/Footer";
 export default function Home() {
   const [fiction, setFiction] = useState([]);
   const [nonfiction, setnonFiction] = useState([]);
@@ -35,7 +36,7 @@ export default function Home() {
   useEffect(()=>{
     setInterval(()=>{
       setIsLoading(false);
-    },3000)
+    },2000)
   },[])
 
   useEffect(() => {
@@ -299,6 +300,7 @@ export default function Home() {
           );
         })}
       </div>
+      <Footer/>
     </div>
    )}
   </>

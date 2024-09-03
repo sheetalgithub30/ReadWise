@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import LoginNavbar from "../Components/LoginNavbar";
 import Gemini from "../Components/Gemini";
+import Footer from "../Components/Footer";
+import Spinner from "../Components/Spinner";
 
 function Chatbot() {
+  const[isLoading,setIsLoading] = useState(true);
+
+  useEffect(()=>{
+    setInterval(()=>{
+      setIsLoading(false);
+    },1000)
+  },[])
+
   return (
     <>
+      {isLoading ?(
+   <div className='w-screen h-screen flex items-center justify-center
+   overflow-hidden'>
+      <Spinner/>
+   </div>
+   ):(<>
       <LoginNavbar />
       <div>
         <div className="flex  justify-center items-center max-sm:block">
@@ -28,6 +44,9 @@ function Chatbot() {
 
         <Gemini/>
       </div>
+      <Footer/>
+      </>
+      )}
     </>
   );
 }
