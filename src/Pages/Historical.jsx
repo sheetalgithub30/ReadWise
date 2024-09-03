@@ -51,6 +51,7 @@ function Historical() {
                 p_date={e.volumeInfo.publishedDate} desc={e.volumeInfo.description} buy_link={e.saleInfo.buyLink ? e.saleInfo.buyLink :e.volumeInfo.infoLink} 
                 preview_link={e.volumeInfo.previewLink}
                 info_link={e.volumeInfo.infoLink}
+                setClick={setClick}
                 />
             </div>
           })}
