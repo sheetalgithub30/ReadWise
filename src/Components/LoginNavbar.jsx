@@ -23,17 +23,17 @@ function LoginNavbar() {
       <Link to="/home">
         <img src={logo} className="w-14 m-2"></img>
       </Link>
-      <Link to="/chatbot" className="max-sm:hidden">
+      <Link to="/chatbot" className="max-md:hidden">
         <motion.button whileTap={{ scale: 0.9 }}>CHATBOT</motion.button>
       </Link>
-      <Link to="/notes" className="max-sm:hidden">
+      <Link to="/notes" className="max-md:hidden">
         <motion.button whileTap={{ scale: 0.9 }}>NOTES</motion.button>
       </Link>
 
-      <Link to="/translator" className="max-sm:hidden">
+      <Link to="/translator" className="max-md:hidden">
         <motion.button whileTap={{ scale: 0.9 }}>TRANSLATOR</motion.button>
       </Link>
-      <div className="max-sm:hidden">
+      <div className="max-md:hidden flex items-center">
       <h1>Welcome {auth.currentUser && auth.currentUser.displayName} !! </h1>
       {auth.currentUser && 
       <motion.div whileTap={{ scale: 0.9 }}>
@@ -41,7 +41,7 @@ function LoginNavbar() {
       </motion.div>
       }
       </div>
-      <div className="hidden max-sm:block" onClick={()=>{setHam(!ham)}}>
+      <div className="hidden max-md:block" onClick={()=>{setHam(!ham)}}>
         {ham?
         <div className="bg-white absolute top-16 right-2 z-10">
 
@@ -73,7 +73,7 @@ function LoginNavbar() {
 
         </div>:<>
         </>}
-        <RxHamburgerMenu />
+        <RxHamburgerMenu className="text-3xl " />
       </div>
     </div>
   

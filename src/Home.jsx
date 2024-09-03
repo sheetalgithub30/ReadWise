@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import Card from "./Components/Card";
 import { FaSearch } from "react-icons/fa";
 import SingleComponent from "./Components/SingleComponent";
+import Spinner from './Components/Spinner';
 export default function Home() {
   const [fiction, setFiction] = useState([]);
   const [nonfiction, setnonFiction] = useState([]);
@@ -19,14 +20,23 @@ export default function Home() {
 
   const [search, setSearch] = useState("");
   const[searchData,setSearchData] = useState([]);
+  
 
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (auth.currentUser === null) {
-  //     navigate("/");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (auth.currentUser === null) {
+      navigate("/");
+    }
+  }, []);
+
+  const[isLoading,setIsLoading] = useState(true);
+
+  useEffect(()=>{
+    setInterval(()=>{
+      setIsLoading(false);
+    },3000)
+  },[])
 
   useEffect(() => {
     fetchData("fiction", 4);
@@ -103,6 +113,15 @@ export default function Home() {
     setSearchData(result.items);
   }
   return (
+
+  <>
+    {isLoading ?(
+   <div className='w-screen h-screen flex items-center justify-center
+   overflow-hidden'>
+      <Spinner/>
+   </div>
+   ):(
+  
     <div>
       <LoginNavbar />
       <div className="bg-hero bg-cover h-[85vh] w-[100%]  bg-[center_bottom_3rem] relative">
@@ -281,5 +300,7 @@ export default function Home() {
         })}
       </div>
     </div>
+   )}
+  </>
   );
 }
