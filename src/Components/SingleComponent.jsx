@@ -38,9 +38,9 @@ function target(){
               <p ><span className='font-bold text-blue-700'>Publisher:</span>{publisher}</p>
               <p><span className='font-bold text-blue-700'>Published Date:</span>{p_date}</p>
               <div className='text-xl flex flex-wrap'>
-            <Link to={buy_link} className='bg-orange-500 border-4 border-orange-600 px-3 py-1 rounded-2xl m-4'>Buy Now</Link>
-            <Link to={info_link} className='bg-orange-500 border-4 border-orange-600 px-3 py-1 rounded-2xl m-4'>Get Info</Link>
-            <Link to={preview_link} className='bg-orange-500 border-4 border-orange-600 px-3 py-1 rounded-2xl m-4'>View Preview</Link>
+            <Link to={buy_link} target="_blank" className='bg-orange-500 border-4 border-orange-600 px-3 py-1 rounded-2xl m-4'>Buy Now</Link>
+            <Link to={info_link} target="_blank" className='bg-orange-500 border-4 border-orange-600 px-3 py-1 rounded-2xl m-4'>Get Info</Link>
+            <Link to={preview_link} target="_blank"className='bg-orange-500 border-4 border-orange-600 px-3 py-1 rounded-2xl m-4'>View Preview</Link>
         </div>
         </div>
         <motion.button 
