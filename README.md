@@ -19,7 +19,7 @@ Readwise is a React-based book application integrated with AI to enhance user ex
 ## 📎 Library Used
  1. 🔖 @google/generative-ai: Provides tools and APIs for integrating Google’s generative AI models into applications, enabling advanced AI functionalities.
  2. 🔖firebase: A comprehensive app development platform by Google that offers services like authentication, real-time databases, and cloud storage.
- 3.🔖 framer-motion: A powerful library for creating animations and transitions in React applications with ease and flexibility.
+ 3. 🔖 framer-motion: A powerful library for creating animations and transitions in React applications with ease and flexibility.
  4. 🔖react: A popular JavaScript library for building user interfaces, particularly single-page applications, using a component-based architecture.
  5. 🔖 react-dom: A package that provides DOM-specific methods for React, enabling the rendering of React components in the browser.
  6. 🔖 react-icons: A library that provides a collection of popular icons as React components, making it easy to include icons in your app.
