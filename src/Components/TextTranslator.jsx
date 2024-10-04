@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
+import { ToastContainer, toast } from "react-toastify";
+
 
 function TextTranslator() {
   const [options, setOption] = useState([]);
@@ -34,6 +36,24 @@ function TextTranslator() {
   }, []);
 
   const getTranslate = async () => {
+    
+    if(!sourceLanguage){
+      const notify = () => toast.warning("Select a source language");
+      notify();
+      return;
+    }
+    if(!targetLanguage){
+      const notify = () => toast.warning("Select a target language");
+      notify();
+      return;
+    }
+
+    if(!inputValue){
+      const notify = () => toast.warning("Provide input");
+      notify();
+      return;
+    }
+     
     const url = "https://text-translator2.p.rapidapi.com/translate";
     const options = {
       method: "POST",
@@ -73,6 +93,8 @@ function TextTranslator() {
 
   return (
     <div className="border-4 border-purple-800 p-6 mb-3 bg-purple-200">
+           <ToastContainer />
+
       <div className="flex justify-end">
         <motion.button
           whileTap={{ scale: 0.9 }}
@@ -143,12 +165,12 @@ function TextTranslator() {
 
 
       <div className="flex justify-center">
-        <button
+        <motion.button
           className="bg-green-500 p-3 mt-3 rounded-lg text-lg"
           onClick={getTranslate}
         >
           Translate
-        </button>
+        </motion.button>
       </div>
     </div>
   );

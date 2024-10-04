@@ -171,7 +171,7 @@ export default function Home() {
       <div>
           {click && click.map((e)=>{
             return <div className='flex justify-center mx-auto my-16 w-[60vw]'>
-              <SingleComponent src={e.volumeInfo.imageLinks.thumbnail} 
+              <SingleComponent src={e.volumeInfo.imageLinks?.thumbnail} 
               title={e.volumeInfo.title}
                auth_name={e.volumeInfo.authors[0]}
                publisher={e.volumeInfo.publisher}
@@ -198,7 +198,7 @@ export default function Home() {
 
 {
   searchData && searchData.map((ele) => (
-    ele.volumeInfo && ele.volumeInfo.imageLinks && ele.volumeInfo.imageLinks.thumbnail ? 
+    ele.volumeInfo && ele.volumeInfo.imageLinks && ele.volumeInfo.imageLinks?.thumbnail ? 
     (
       <div onClick={()=>{
         handleCardClick(ele.id)}}>
@@ -239,7 +239,7 @@ export default function Home() {
                   fiction.map((ele) => {
                     return (
                       <Card
-                        src={ele.volumeInfo.imageLinks.thumbnail}
+                        src={ele.volumeInfo.imageLinks?.thumbnail}
                         title={ele.volumeInfo.title}
                       />
                     );
@@ -251,7 +251,7 @@ export default function Home() {
                   nonfiction.map((ele) => {
                     return (
                       <Card
-                        src={ele.volumeInfo.imageLinks.thumbnail}
+                        src={ele.volumeInfo.imageLinks?.thumbnail}
                         title={ele.volumeInfo.title}
                       />
                     );
@@ -263,7 +263,7 @@ export default function Home() {
                   historical.map((ele) => {
                     return (
                       <Card
-                        src={ele.volumeInfo.imageLinks.thumbnail}
+                        src={ele.volumeInfo.imageLinks?.thumbnail}
                         title={ele.volumeInfo.title}
                       />
                     );
@@ -275,7 +275,7 @@ export default function Home() {
                   travel.map((ele) => {
                     return (
                       <Card
-                        src={ele.volumeInfo.imageLinks.thumbnail}
+                        src={ele.volumeInfo.imageLinks?.thumbnail}
                         title={ele.volumeInfo.title}
                       />
                     );
@@ -287,7 +287,7 @@ export default function Home() {
                   be.map((ele) => {
                     return (
                       <Card
-                        src={ele.volumeInfo.imageLinks.thumbnail}
+                        src={ele.volumeInfo.imageLinks?.thumbnail}
                         title={ele.volumeInfo.title}
                       />
                     );

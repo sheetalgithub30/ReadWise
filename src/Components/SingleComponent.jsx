@@ -7,7 +7,7 @@ function SingleComponent({src,title,auth_name,publisher,p_date,desc,buy_link,pre
   useEffect(() => {
     // window.scrollTo(0, 0);
     window.scrollTo({
-      top: 60,
+      top: 100,
       left: 0,
       behavior: "smooth",
     });
