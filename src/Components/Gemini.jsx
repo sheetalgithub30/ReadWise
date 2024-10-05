@@ -86,7 +86,7 @@ function GeminiPrompt({
         </div>
       <div className="flex justify-evenly items-center">
       <textarea
-      className="text-wrap w-[85%] p-1 m-3 rounded-lg border-2 border-black "
+      className="text-wrap w-[85%] text-xl p-1 m-3 rounded-lg border-2 border-black "
         type="text"
         value={prompt}
         onChange={(e) => {setPrompt(e.target.value)

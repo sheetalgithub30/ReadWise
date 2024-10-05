@@ -41,7 +41,7 @@ export default function Home() {
 
   useEffect(() => {
     fetchData("fiction", 4);
-    fetchData("nonfiction", 4);
+    fetchData("nonfiction", 10);
     fetchData("historical", 4);
     fetchData("travel", 4);
     fetchData("business economics", 4);
@@ -57,11 +57,8 @@ export default function Home() {
     subject == "historical" ? setHistorical(result.items) : null;
     subject == "travel" ? setTravel(result.items) : null;
     subject == "business economics" ? setBE(result.items) : null;
-
-    // console.log(result)
   }
 
-  // console.log("f", fiction);
   const data = [
     {
       type: "FICTION",
@@ -95,11 +92,42 @@ export default function Home() {
   }
 
 
-  const handleCardClick = (id) => {
-    // console.log(id);
-    setClick(searchData.filter((ele)=>{
-      return ele.id == id
-    }))
+  const handleCardClick = (id,data) => {
+    if(data == "search"){
+      setClick(searchData.filter((ele)=>{
+        return ele.id == id
+      }))
+    }
+
+    if(data === "fiction"){
+      setClick(fiction.filter((ele)=>{
+        return ele.id == id
+      }))
+    }
+
+    if(data === "nonfiction"){
+      setClick(nonfiction.filter((ele)=>{
+        return ele.id == id
+      }))
+    }
+
+    if(data === "historical"){
+      setClick(historical.filter((ele)=>{
+        return ele.id == id
+      }))
+    }
+
+    if(data === "be"){
+      setClick(be.filter((ele)=>{
+        return ele.id == id
+      }))
+    }
+
+    if(data === "travel"){
+      setClick(travel.filter((ele)=>{
+        return ele.id == id
+      }))
+    }
   };
 
 
@@ -201,7 +229,7 @@ export default function Home() {
     ele.volumeInfo && ele.volumeInfo.imageLinks && ele.volumeInfo.imageLinks?.thumbnail ? 
     (
       <div onClick={()=>{
-        handleCardClick(ele.id)}}>
+        handleCardClick(ele.id,"search")}}>
         <Card
           src={ele.volumeInfo.imageLinks.thumbnail}
           title={ele.volumeInfo.title}
@@ -238,22 +266,32 @@ export default function Home() {
                 {e.subject == "fiction" ? (
                   fiction.map((ele) => {
                     return (
-                      <Card
-                        src={ele.volumeInfo.imageLinks?.thumbnail}
-                        title={ele.volumeInfo.title}
-                      />
+                      <div
+                      onClick={()=>{
+                        handleCardClick(ele.id,"fiction")}}>
+
+                        <Card
+                          src={ele.volumeInfo.imageLinks?.thumbnail}
+                          title={ele.volumeInfo.title}
+                        
+                        />
+                      </div>
                     );
                   })
                 ) : (
                   <></>
                 )}
                 {e.subject == "nonfiction" ? (
-                  nonfiction.map((ele) => {
+                  nonfiction.slice(4,8).map((ele) => {
                     return (
+                      <div
+                      onClick={()=>{
+                        handleCardClick(ele.id,"nonfiction")}}>
                       <Card
                         src={ele.volumeInfo.imageLinks?.thumbnail}
                         title={ele.volumeInfo.title}
                       />
+                      </div>
                     );
                   })
                 ) : (
@@ -262,10 +300,14 @@ export default function Home() {
                 {e.subject == "historical" ? (
                   historical.map((ele) => {
                     return (
+                      <div
+                      onClick={()=>{
+                        handleCardClick(ele.id,"historical")}}>
                       <Card
                         src={ele.volumeInfo.imageLinks?.thumbnail}
                         title={ele.volumeInfo.title}
                       />
+                      </div>
                     );
                   })
                 ) : (
@@ -274,10 +316,14 @@ export default function Home() {
                 {e.subject == "travel" ? (
                   travel.map((ele) => {
                     return (
+                      <div
+                      onClick={()=>{
+                        handleCardClick(ele.id,"travel")}}>
                       <Card
                         src={ele.volumeInfo.imageLinks?.thumbnail}
                         title={ele.volumeInfo.title}
                       />
+                      </div>
                     );
                   })
                 ) : (
@@ -286,10 +332,14 @@ export default function Home() {
                 {e.subject == "business economics" ? (
                   be.map((ele) => {
                     return (
+                      <div
+                      onClick={()=>{
+                        handleCardClick(ele.id,"be")}}>
                       <Card
                         src={ele.volumeInfo.imageLinks?.thumbnail}
                         title={ele.volumeInfo.title}
                       />
+                      </div>
                     );
                   })
                 ) : (

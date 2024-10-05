@@ -47,10 +47,10 @@ function handledel(id){
 
 
 return(
-  <div className="border-4 bg-purple-300 border-purple-600 w-[60%] p-7 m-4 max-sm:w-full ">
+  <div className="border-4 bg-purple-300 border-purple-600 w-[80%] p-7 m-4 rounded-3xl max-sm:w-full ">
      <ToastContainer />
     <form onSubmit={handleSubmit} className="text-2xl flex justify-center items-center max-sm:text-xl">
-      <input type="text" placeholder="Enter Notes" value={input} onChange={(e)=>{setInput(e.currentTarget.value)}} className="border-2 border-black py-2 max-sm:py-1 max-sm:w-[80%]"></input>
+      <input type="text" placeholder="Enter Notes" value={input} onChange={(e)=>{setInput(e.currentTarget.value)}} className="border-2 border-black py-2 px-2 max-sm:py-1 max-sm:w-[80%]"></input>
       <motion.input
           whileTap={{scale:0.9}}
       type="submit" value="ADD" className="bg-green-500 px-5 py-2 m-3 rounded-xl text-white max-sm:px-2"></motion.input>
@@ -61,7 +61,8 @@ return(
       list.map((ele,index)=>{
         return(
          <div className="m-4">
-           <span className="border-2 bg-yellow-500 flex justify-between items-start rounded-2xl  p-2 ">
+          
+           <span className="border-2 bg-yellow-500 flex justify-between items-start rounded-2xl p-2 ">
            <p className="text-wrap text-white text-2xl p-2">{ele.text}</p>
           <motion.button 
           whileTap={{scale:0.9}}
